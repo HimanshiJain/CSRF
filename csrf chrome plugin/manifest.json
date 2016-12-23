@@ -1,0 +1,32 @@
+{
+	"manifest_version": 2,
+	"name": "CSRF Intercepter",
+	"description": "A Cross-Site Request Forgery Vulnerabilty Handler",
+	"version": "1.0",
+
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+
+	"permissions": ["webRequest", "webRequestBlocking","<all_urls>","tabs"],
+
+	"background": {
+		"scripts": ["jquery.js", "background.js"]
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["http://*/*","https://*/*"],
+			"css": ["style.css"],
+			"js": ["jquery.js", "script.js", "md5.min.js"]
+
+		}
+	],
+	"devtools_page": "devtools.html",
+	"web_accessible_resources": []
+		
+
+
+
+}
